@@ -1,7 +1,4 @@
-# Project
-
-## Title
-Spin It to Win It!
+## Spin It to Win It!
 
 ## Name of the Team Members
 Daniel, Sam, and Eli
