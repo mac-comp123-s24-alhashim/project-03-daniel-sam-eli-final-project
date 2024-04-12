@@ -3,8 +3,8 @@ import random
 optionsForSlotMachine = {1: "Trash",
                          4: "Bagpipes",
                          3: "Loch Ness Monster",
-                         2: "Diamond",
-                         5: "Cherry",
+                         2: "Apple",
+                         5: "Diamond",
                          6: "Dupre",
                          7: "Jackpot"}
 

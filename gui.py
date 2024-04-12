@@ -1,5 +1,8 @@
 import tkinter as tk
 import random
+
+from util.display_helper import *
+from util.imageTools import *
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
@@ -30,7 +33,9 @@ class BasicGui:
         hashtagdeep["bg"] = "red"
         hashtagdeep.grid(row=3, column=1)
 
-
+        bagpipes = tk.PhotoImage(file='Images/dupreHall.png')
+        bagpiesGui = tk.Label(self.mainWin, image=bagpipes)
+        bagpiesGui.grid(row=1, column=1)
 
 
     def run(self):
