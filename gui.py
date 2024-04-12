@@ -14,7 +14,7 @@ class BasicGui:
         controlbar = tk.Frame(self.mainWin, bg = "lightblue", padx=10, pady=10)
         controlbar.grid(row=0, column=1)
         SPIN = tk.Button(controlbar)
-        SPIN["text"] = "SPIN 🤑🤑🤑🤑🤑"
+        SPIN["text"] = "SPIN"
         SPIN.grid(row=1, column=1)
 
         stopspin = tk.Button(controlbar)
@@ -22,7 +22,7 @@ class BasicGui:
         stopspin.grid(row=2, column=1)
 
 
-        saying = ['life is like gambling. i just need a little more money to keep going.', 'poopy', 'gamblers dont quit. they lose.']
+        saying = ['life is like gambling. i just need a little more money to keep going.', 'Sonic says "I love Gambling"', 'gamblers dont quit. they lose.']
         randsay = random.choice(saying)
         hashtagdeep = tk.Label(controlbar, text=randsay, font="Arial 10", wraplength=60, justify="center")
         hashtagdeep["width"] = 10
