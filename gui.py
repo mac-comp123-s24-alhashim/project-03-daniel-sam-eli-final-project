@@ -45,9 +45,11 @@ class BasicGui:
         hashtagdeep["bg"] = "red"
         hashtagdeep.grid(row=3, column=1)
 
-        self.bagpipesImg = ImageTk.PhotoImage(file="Images/dupreHall.png")
-        self.bagpipes = thewheel.create_image(50, 50, image=self.bagpipesImg)   # Credit to the page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
+        self.bagpipesImg = ImageTk.PhotoImage(file="Images/bagpipesResized.jpg")
+        self.diamondImg = ImageTk.PhotoImage(file="Images/diamondResized.jpg")
 
+        self.bagpipes = thewheel.create_image(100, 100, image=self.bagpipesImg)  # Credit to the page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
+        self.diamond = thewheel.create_image(100, 300, image=self.diamondImg)
 
     def run(self):
         self.mainWin.mainloop()
