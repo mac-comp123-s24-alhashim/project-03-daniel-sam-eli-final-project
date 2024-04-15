@@ -10,7 +10,45 @@ import PIL.ImageTk as ImageTk
 class BasicGui:
     def __init__(self):
         self.mainWin = tk.Tk()
+        # ----- Callbacks for Calculations Stuff -----
+        def spin_calculations(legend):
+            rolled_value = 0
+            for i in range(5):
+                value = random.random()
+                if value <= .2:
+                    rolled_value = legend.get(1)
+                elif .2 < value <= .4:
+                    rolled_value = legend.get(2)
+                elif .4 < value <= .6:
+                    rolled_value = legend.get(3)
+                elif .6 < value <= .7:
+                    rolled_value = legend.get(4)
+                elif .7 < value <= .8:
+                    rolled_value = legend.get(5)
+                elif .8 < value <= .95:
+                    rolled_value = legend.get(6)
+                elif .95 < value <= 1:
+                    rolled_value = legend.get(7)
+                return rolled_value
+        def payout(bet, rolled_value1,rolled_value2,rolled_value3,legend_value):
+            if rolled_value1 == rolled_value2 == rolled_value3:
+                cash_multipler = legend_value.get(rolled_value1)
+                return bet * cash_multipler
+            else:
+                return bet * 0
+        def stop(bet,legend,legend_values):
+            image1 = spin_calculations(legend)
+            image2 = spin_calculations(legend)
+            image3 = spin_calculations(legend)
+            # stopspin
+            # set each image to the corrusponding image
+            winnings = payout(bet,image1,image2,image3,legend_values)
+            return winnings #This will eventually change to update the payout tab and the total credit tab
 
+
+
+
+        # ----- Callbacks for Calculations -----
         wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
         wheelpluslegend.grid(row=0, column=0)
 
