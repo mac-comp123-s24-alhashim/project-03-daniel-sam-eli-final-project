@@ -1,8 +1,11 @@
 import tkinter as tk
 import random
 
-from util.display_helper import *
-from util.imageTools import *
+import PIL
+import PIL.Image as Image
+import PIL.ImageTk as ImageTk
+
+
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
@@ -35,16 +38,15 @@ class BasicGui:
         saying = ['life is like gambling. i just need a little more money to keep going.', 'Sonic says "I love Gambling"', 'gamblers dont quit. they lose.',
                   'Dont quit! youre about to make it big!', 'I love Gambling', 'gambling...mmmmm', 'hello amin alhashim', 'youre gonna win this one i know it']
         randsay = random.choice(saying)
-        SPIN["command"] = self.changesaying
+        # SPIN["command"] = self.changesaying
         hashtagdeep = tk.Label(controlbar, text=randsay, font="Arial 10", wraplength=60, justify="center")
         hashtagdeep["width"] = 10
         hashtagdeep["height"] = 10
         hashtagdeep["bg"] = "red"
         hashtagdeep.grid(row=3, column=1)
 
-        bagpipes = tk.PhotoImage(file='Images/dupreHall.png')   # Credit to the page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
-        bagpiesGui = tk.Label(self.mainWin, image=bagpipes)
-        bagpiesGui.grid(row=1, column=1)
+        self.bagpipesImg = ImageTk.PhotoImage(file="Images/dupreHall.png")
+        self.bagpipes = thewheel.create_image(50, 50, image=self.bagpipesImg)   # Credit to the page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
 
 
     def run(self):
