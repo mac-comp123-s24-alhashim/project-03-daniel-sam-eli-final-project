@@ -42,7 +42,7 @@ class BasicGui:
         hashtagdeep["bg"] = "red"
         hashtagdeep.grid(row=3, column=1)
 
-        bagpipes = tk.PhotoImage(file='Images/dupreHall.png')
+        bagpipes = tk.PhotoImage(file='Images/dupreHall.png')   # Credit to the page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
         bagpiesGui = tk.Label(self.mainWin, image=bagpipes)
         bagpiesGui.grid(row=1, column=1)
 
