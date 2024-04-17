@@ -1,4 +1,14 @@
 import random
+def start_spin(credit):
+    print("Your Current Wallet is  " + str(credit))
+    while True:
+        bet = input("How many coins will you bet")
+        if int(bet) > credit:
+            print("Try Again")
+        else:
+            return int(bet)
+            break
+
 def spin_calculations(legend):
     rolled_value = 0
     for i in range(5):
@@ -42,16 +52,17 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
         return bet * 0
 
 
-def stop(bet, legend, legend_values):
+def stop(bet, legend, legend_values, credit):
     image1 = spin_calculations(legend)
     image2 = spin_calculations(legend)
     image3 = spin_calculations(legend)
     # stopspin
     # set each image to the corrusponding image
     winnings = payout(bet, image1, image2, image3, legend_values)
-    return winnings  # This will eventually change to update the payout tab and the total credit tab
+    return "Payout =" + str(winnings), "Total Credit =" + str(credit - bet + winnings) # This will eventually change to update the payout tab and the total credit tab
 
 def main():
+    casino_credit = 100
     optionsForSlotMachine = {1: "Trash",
                              4: "Bagpipes",
                              3: "Loch Ness Monster",
@@ -66,8 +77,8 @@ def main():
                               "Diamond": 4,
                               "Dupre": 1,
                              "Jackpot":7}
-    # user_bet = input("please enter number")
-    # user_bet = int(user_bet)
-    print(stop(3,optionsForSlotMachine,SlotMachine_value))
+    for i in range(3):
+        bet = start_spin(casino_credit)
+        print(stop(bet,optionsForSlotMachine,SlotMachine_value, casino_credit))
 
 main()
