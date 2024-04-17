@@ -88,9 +88,13 @@ class BasicGui:
 
         self.bagpipesImg = ImageTk.PhotoImage(file="Images/bagpipesResized.jpg")
         self.diamondImg = ImageTk.PhotoImage(file="Images/diamondResized.jpg")
+        self.dupreHallImg = ImageTk.PhotoImage(file="Images/dupreHallResized.png")
+        self.honeycrispAppleImg = ImageTk.PhotoImage(file="Images/honeycrispAppleResized.jpg")
+        self.lochNessMonsterImg = ImageTk.PhotoImage(file="Images/lochNessMonsterResized.png")
+        self.sevenJackpotImg = ImageTk.PhotoImage(file="Images/sevenJackpotResized.png")
 
-        self.bagpipes = thewheel.create_image(100, 100, image=self.bagpipesImg)  # Credit to the page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
-        self.diamond = thewheel.create_image(100, 300, image=self.diamondImg)
+        self.bagpipes = thewheel.create_image(75, 200, image=self.bagpipesImg)  # Credit to this page for helping me with finding and implementing images in the tkinter module  (https://www.tutorialspoint.com/how-to-place-an-image-into-a-frame-in-tkinter)
+        self.diamond = thewheel.create_image(200, 200, image=self.diamondImg)
 
     def run(self):
         self.mainWin.mainloop()
