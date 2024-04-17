@@ -98,7 +98,31 @@ class BasicGui:
 
 
 
+<<<<<<< HEAD
         # ----- Callbacks for Calculations -----
+=======
+
+
+        # ----- Each Widget -----
+        wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
+        wheelpluslegend.grid(row=0, column=0)
+
+        thewheel = tk.Canvas(wheelpluslegend)
+        thewheel["width"] = 400
+        thewheel["height"] = 400
+        thewheel["bg"] = "pink"
+        thewheel.grid(row=0, column=0)
+
+
+        legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10", wraplength=400, justify="center")
+        legend.grid(row=1, column=0)
+
+        controlbar = tk.Frame(self.mainWin, bg = "lightblue", padx=10, pady=10)
+        controlbar.grid(row=0, column=1)
+        SPIN = tk.Button(controlbar)
+        SPIN["text"] = "SPIN"
+        SPIN.grid(row=1, column=1)
+>>>>>>> fe74084bc50c86e7d655cc8fadf7d04f952899c6
 
 
 
