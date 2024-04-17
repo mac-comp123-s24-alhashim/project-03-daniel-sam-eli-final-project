@@ -48,7 +48,9 @@ class BasicGui:
 
 
 
-        # ----- Callbacks for Calculations -----
+
+
+        # ----- Each Widget -----
         wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
         wheelpluslegend.grid(row=0, column=0)
 
@@ -57,6 +59,7 @@ class BasicGui:
         thewheel["height"] = 400
         thewheel["bg"] = "pink"
         thewheel.grid(row=0, column=0)
+
 
         legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10", wraplength=400, justify="center")
         legend.grid(row=1, column=0)
