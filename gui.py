@@ -46,7 +46,7 @@ class BasicGui:
 
         moneystatus = tk.Label(controlbar)
         moneystatus.grid(row=1, column=1)
-        moneystatus["text"] = whattosay
+        moneystatus["text"] = 10 #whattosay
 
         SPIN = tk.Button(controlbar)
         SPIN["text"] = "SPIN"
@@ -88,20 +88,30 @@ class BasicGui:
             elif .95 < value <= 1:
                 rolled_value = legend.get(7)
             return rolled_value
-        def payout(bet, rolled_value1,rolled_value2,rolled_value3,legend_value):
-            if rolled_value1 == rolled_value2 == rolled_value3:
-                cash_multipler = legend_value.get(rolled_value1)
-                return bet * cash_multipler
-            else:
-                return bet * 0
-        def stop(self, bet,legend,legend_values):
-            image1 = spin_calculations(legend)
-            image2 = spin_calculations(legend)
-            image3 = spin_calculations(legend)
-            # stopspin
-            # set each image to the corrusponding image
-            winnings = payout(bet,image1,image2,image3,legend_values)
-            return winnings #This will eventually change to update the payout tab and the total credit tab
+    def payout(bet, rolled_value1,rolled_value2,rolled_value3,legend_value):
+        if rolled_value1 == rolled_value2 == rolled_value3:
+            cash_multipler = legend_value.get(rolled_value1)
+            return bet * cash_multipler
+        else:
+            return bet * 0
+    def stop(self, bet,legend,legend_values):
+        image1 = spin_calculations(legend)
+        image2 = spin_calculations(legend)
+        image3 = spin_calculations(legend)
+        # stopspin
+        # set each image to the corrusponding image
+        winnings = payout(bet,image1,image2,image3,legend_values)
+        return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
+
+        def start_spin(credit):
+            print("Your Current Wallet is  " + str(credit))
+            while True:
+                bet = input("How many coins will you bet: ")
+                if int(bet) > credit:
+                    print("Try Again, You're Too Poor")
+                else:
+                    return int(bet)
+                break
 
 
 
@@ -137,4 +147,5 @@ class BasicGui:
 
 # ----- Main program -----
 myGui = BasicGui()
+casino_credit = 100
 myGui.run()
