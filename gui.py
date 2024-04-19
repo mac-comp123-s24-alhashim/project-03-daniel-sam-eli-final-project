@@ -54,11 +54,6 @@ class BasicGui:
                   'hello amin alhashim', 'youre gonna win this one i know it']
         randsay = random.choice(saying)
         # SPIN["command"] = self.changesaying
-        hashtagdeep = tk.Label(controlbar, text=randsay, font="Arial 10", wraplength=60, justify="center")
-        hashtagdeep["width"] = 10
-        hashtagdeep["height"] = 10
-        hashtagdeep["bg"] = "red"
-        hashtagdeep.grid(row=3, column=1)
 
         # ----- Callbacks for Calculations Stuff -----
     def spin_calculations(self, legend):
@@ -95,6 +90,13 @@ class BasicGui:
             winnings = payout(bet,image1,image2,image3,legend_values)
             return winnings #This will eventually change to update the payout tab and the total credit tab
 
+        def rotateImages():
+            sec = 0
+            while sec > 0:
+                thewheel.create_image(75, 200, image=random.choice(self.imgList))
+                thewheel.create_image(200, 200, image=random.choice(self.imgList))
+                thewheel.create_image(350, 200, image=random.choice(self.imgList))
+                sec =
 
 
         # ----- Callbacks for Calculations -----
