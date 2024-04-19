@@ -2,9 +2,9 @@ import random
 def start_spin(credit):
     print("Your Current Wallet is  " + str(credit))
     while True:
-        bet = input("How many coins will you bet")
+        bet = input("How many coins will you bet: ")
         if int(bet) > credit:
-            print("Try Again")
+            print("Try Again, You're Too Poor")
         else:
             return int(bet)
             break
@@ -59,7 +59,7 @@ def stop(bet, legend, legend_values, credit):
     # stopspin
     # set each image to the corrusponding image
     winnings = payout(bet, image1, image2, image3, legend_values)
-    return "Payout =" + str(winnings), "Total Credit =" + str(credit - bet + winnings) # This will eventually change to update the payout tab and the total credit tab
+    return "Payout = " + str(winnings), "Winnings = ", (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
 
 def main():
     casino_credit = 100
@@ -79,6 +79,7 @@ def main():
                              "Jackpot":7}
     for i in range(3):
         bet = start_spin(casino_credit)
-        print(stop(bet,optionsForSlotMachine,SlotMachine_value, casino_credit))
-
+        big_shot = stop(bet,optionsForSlotMachine,SlotMachine_value, casino_credit)
+        print(big_shot)
+        casino_credit = big_shot[2]
 main()
