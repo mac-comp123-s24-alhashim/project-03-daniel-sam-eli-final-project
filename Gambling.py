@@ -59,7 +59,7 @@ def stop(bet, legend, legend_values, credit):
     # stopspin
     # set each image to the corrusponding image
     winnings = payout(bet, image1, image2, image3, legend_values)
-    return "Payout = " + str(winnings), "Winnings = ", (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
+    return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
 
 def main():
     casino_credit = 100
@@ -72,14 +72,17 @@ def main():
                              7: "Jackpot"}
     SlotMachine_value = {"Trash": .5,
                              "Bagpipes":1.5,
-                             "Loch Ness Monster": 2,
-                              "Apple": 3,
-                              "Diamond": 4,
-                              "Dupre": 1,
-                             "Jackpot":7}
+                             "Loch Ness Monster": 3,
+                              "Apple": 4,
+                              "Diamond": 5,
+                              "Dupre": 2,
+                             "Jackpot": 100}
     for i in range(3):
         bet = start_spin(casino_credit)
         big_shot = stop(bet,optionsForSlotMachine,SlotMachine_value, casino_credit)
-        print(big_shot)
+        print(big_shot[0:2])
         casino_credit = big_shot[2]
+    print("Your total is " + str(casino_credit))
+    if casino_credit <= 100000000000000000000000000000:
+        print("Man, you suck at gambling")
 main()
