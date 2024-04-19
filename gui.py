@@ -94,7 +94,7 @@ class BasicGui:
             elif .95 < value <= 1:
                 rolled_value = legend.get(7)
             return rolled_value
-    def payout(bet, rolled_value1,rolled_value2,rolled_value3,legend_value):
+    def payout(self,bet, rolled_value1,rolled_value2,rolled_value3,legend_value):
         if rolled_value1 == rolled_value2 == rolled_value3:
             cash_multipler = legend_value.get(rolled_value1)
             return bet * cash_multipler
@@ -109,7 +109,7 @@ class BasicGui:
         winnings = payout(bet,image1,image2,image3,legend_values)
         return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
 
-        def start_spin(credit):
+    def start_spin(self, credit):
             print("Your Current Wallet is  " + str(credit))
             while True:
                 bet = input("How many coins will you bet: ")
