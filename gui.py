@@ -97,10 +97,7 @@ class BasicGui:
 
 
 
-
-<<<<<<< HEAD
         # ----- Callbacks for Calculations -----
-=======
 
 
         # ----- Each Widget -----
@@ -122,8 +119,6 @@ class BasicGui:
         SPIN = tk.Button(controlbar)
         SPIN["text"] = "SPIN"
         SPIN.grid(row=1, column=1)
->>>>>>> fe74084bc50c86e7d655cc8fadf7d04f952899c6
-
 
 
 
