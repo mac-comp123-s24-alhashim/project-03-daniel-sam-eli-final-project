@@ -25,14 +25,16 @@ class BasicGui:
         wheelpluslegend.grid(row=0, column=0)
 
         thewheel = tk.Canvas(wheelpluslegend)
-        thewheel["width"] = 400
-        thewheel["height"] = 400
+        wheelheight = 300
+        wheelwidth = 400
+        thewheel["width"] = wheelwidth
+        thewheel["height"] = wheelheight
         thewheel["bg"] = "pink"
-        thewheel.grid(row=0, column=0)
+        thewheel.grid(row=0, column=0, padx=25, pady=50)
 
-        thewheel.create_image(75, 200, image=random.choice(self.imgList))
-        thewheel.create_image(200, 200, image=random.choice(self.imgList))
-        thewheel.create_image(350, 200, image=random.choice(self.imgList))
+        thewheel.create_image(75, 150, image=random.choice(self.imgList))
+        thewheel.create_image(200, 150, image=random.choice(self.imgList))
+        thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10",
                           wraplength=400, justify="center")
