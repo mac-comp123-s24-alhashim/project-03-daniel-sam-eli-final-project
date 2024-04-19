@@ -40,15 +40,21 @@ class BasicGui:
                           wraplength=400, justify="center")
         legend.grid(row=1, column=0)
 
+
         controlbar = tk.Frame(self.mainWin, bg="lightblue", padx=10, pady=10)
         controlbar.grid(row=0, column=1)
+
+        moneystatus = tk.Label(controlbar)
+        moneystatus.grid(row=1, column=1)
+        moneystatus["text"] = whattosay
+
         SPIN = tk.Button(controlbar)
         SPIN["text"] = "SPIN"
-        SPIN.grid(row=1, column=1)
+        SPIN.grid(row=2, column=1)
 
         stopspin = tk.Button(controlbar)
         stopspin["text"] = "STOP THAT WHEEL"
-        stopspin.grid(row=2, column=1)
+        stopspin.grid(row=3, column=1)
 
         saying = ['life is like gambling. i just need a little more money to keep going.',
                   'Sonic says "I love Gambling"', 'gamblers dont quit. they lose.',
@@ -60,7 +66,7 @@ class BasicGui:
         hashtagdeep["width"] = 10
         hashtagdeep["height"] = 10
         hashtagdeep["bg"] = "red"
-        hashtagdeep.grid(row=3, column=1)
+        hashtagdeep.grid(row=4, column=1)
 
         # ----- Callbacks for Calculations Stuff -----
     def spin_calculations(self, legend):
