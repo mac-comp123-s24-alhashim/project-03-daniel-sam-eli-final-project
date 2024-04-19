@@ -44,13 +44,19 @@ class BasicGui:
         controlbar = tk.Frame(self.mainWin, bg="lightblue", padx=10, pady=10)
         controlbar.grid(row=0, column=1)
 
+        payoutlabel = tk.Label(controlbar)
+        payoutlabel.grid(row=0, column=1)
+        payoutlabel["text"] = "put amazing wonderful stuff in here"
+
+        whattosay = "Credit:" , casino_credit
         moneystatus = tk.Label(controlbar)
         moneystatus.grid(row=1, column=1)
-        moneystatus["text"] = 10 #whattosay
+        moneystatus["text"] = whattosay
 
         SPIN = tk.Button(controlbar)
         SPIN["text"] = "SPIN"
         SPIN.grid(row=2, column=1)
+
 
         stopspin = tk.Button(controlbar)
         stopspin["text"] = "STOP THAT WHEEL"
@@ -146,6 +152,6 @@ class BasicGui:
 
 
 # ----- Main program -----
-myGui = BasicGui()
 casino_credit = 100
+myGui = BasicGui()
 myGui.run()
