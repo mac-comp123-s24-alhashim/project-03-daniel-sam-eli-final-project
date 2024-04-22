@@ -7,6 +7,7 @@ import PIL.ImageTk as ImageTk
 
 import os
 
+
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
@@ -20,6 +21,8 @@ class BasicGui:
             openedImage = Image.open("Images/" + picName)
             pic = ImageTk.PhotoImage(openedImage)
             self.imgList.append(pic)
+
+        
 
         wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
         wheelpluslegend.grid(row=0, column=0)
@@ -36,7 +39,7 @@ class BasicGui:
         thewheel.create_image(200, 150, image=random.choice(self.imgList))
         thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
-        legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10",
+        legend = tk.Label(wheelpluslegend, text='Trash = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100', font="Arial 10",
                           wraplength=400, justify="center")
         legend.grid(row=1, column=0)
 
@@ -45,8 +48,8 @@ class BasicGui:
         controlbar.grid(row=0, column=1)
 
         payoutlabel = tk.Label(controlbar)
-        payoutlabel.grid(row=0, column=1)
-        payoutlabel["text"] = "put amazing wonderful stuff in here"
+        payoutlabel.grid(row=0, column=1, padx=10, pady=10)
+        payoutlabel["text"] = "sam insert payout here"
 
         whattosay = "Credit:" , casino_credit
         moneystatus = tk.Label(controlbar)
