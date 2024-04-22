@@ -46,7 +46,7 @@ class BasicGui:
 
         payoutlabel = tk.Label(controlbar)
         payoutlabel.grid(row=0, column=1)
-        payoutlabel["text"] = "put amazing wonderful stuff in here"
+        payoutlabel["text"] = "Payout:", winnings
 
         whattosay = "Credit:" , casino_credit
         moneystatus = tk.Label(controlbar)
@@ -100,14 +100,16 @@ class BasicGui:
             return bet * cash_multipler
         else:
             return bet * 0
-    def stop(self, bet,legend,legend_values):
-        image1 = spin_calculations(legend)
-        image2 = spin_calculations(legend)
-        image3 = spin_calculations(legend)
+    def stop(self, bet,legend,legend_values, credit):
+        image1 = self.spin_calculations(legend)
+        image2 = self.spin_calculations(legend)
+        image3 = self.spin_calculations(legend)
         # stopspin
         # set each image to the corrusponding image
-        winnings = payout(bet,image1,image2,image3,legend_values)
-        return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
+        winnings = self.payout(bet,image1,image2,image3,legend_values)
+        credit = (credit - bet + winnings)
+        return winnings, credit
+
 
     def start_spin(self, credit):
             print("Your Current Wallet is  " + str(credit))
@@ -148,5 +150,6 @@ class BasicGui:
 
 # ----- Main program -----
 casino_credit = 100
+winnings = 0
 myGui = BasicGui()
 myGui.run()
