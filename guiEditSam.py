@@ -6,11 +6,68 @@ import PIL.Image as Image
 import PIL.ImageTk as ImageTk
 
 import os
-
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
+        # ----- Callbacks for Calculations Stuff -----
+
+        def spin_calculations(self, legend):
+            rolled_value = 0
+            for i in range(5):
+                value = random.random()
+                if value <= .2:
+                    rolled_value = legend.get(1)
+                elif .2 < value <= .4:
+                    rolled_value = legend.get(2)
+                elif .4 < value <= .6:
+                    rolled_value = legend.get(3)
+                elif .6 < value <= .7:
+                    rolled_value = legend.get(4)
+                elif .7 < value <= .8:
+                    rolled_value = legend.get(5)
+                elif .8 < value <= .95:
+                    rolled_value = legend.get(6)
+                elif .95 < value <= 1:
+                    rolled_value = legend.get(7)
+                return rolled_value
+
+        def payout(self, bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
+            if rolled_value1 == rolled_value2 == rolled_value3:
+                cash_multipler = legend_value.get(rolled_value1)
+                return bet * cash_multipler
+            else:
+                return bet * 0
+
+        def stop(self, bet, legend, legend_values, credit):
+            image1 = self.spin_calculations(legend)
+            image2 = self.spin_calculations(legend)
+            image3 = self.spin_calculations(legend)
+            # stopspin
+            # set each image to the corrusponding image
+            winnings = self.payout(bet, image1, image2, image3, legend_values)
+            credit = (credit - bet + winnings)
+            return winnings, credit
+
+        def show_entry_in_main():
+            # Updating the label in the main window with the entry from the popup
+            popup.destroy()  # This will close the popup window
+
+        def start_spin(self, credit):
+            global popup, entry
+            popup = tk.Toplevel(self.mainWin)  # Creating a popup window which will be on top of the main window
+            popup.title("Input Entry")
+            popup.geometry("300x150")
+            # Input widget in the popup window
+            entry = tk.Entry(popup)
+            entry.pack(pady=(20, 10))
+            # Submit button that will call the show entry function which will set the text to the variable
+            btn_ok = tk.Button(popup, text="Submit", command=show_entry_in_main)
+            btn_ok.pack()
         self.mainWin = tk.Tk()
+
+
+
+
 
         nameList = os.listdir("Images")  # Credit to this page for this method and the prof for mentioning it: https://www.geeksforgeeks.org/python-list-files-in-a-directory/
 
@@ -54,8 +111,11 @@ class BasicGui:
         moneystatus["text"] = whattosay
 
         SPIN = tk.Button(controlbar)
+        SPIN['command'] = start_spin(self,casino_credit)
         SPIN["text"] = "SPIN"
         SPIN.grid(row=2, column=1)
+
+
 
 
         stopspin = tk.Button(controlbar)
@@ -74,73 +134,6 @@ class BasicGui:
         hashtagdeep["bg"] = "red"
         hashtagdeep.grid(row=4, column=1)
 
-        # ----- Callbacks for Calculations Stuff -----
-    def spin_calculations(self, legend):
-        rolled_value = 0
-        for i in range(5):
-            value = random.random()
-            if value <= .2:
-                rolled_value = legend.get(1)
-            elif .2 < value <= .4:
-                rolled_value = legend.get(2)
-            elif .4 < value <= .6:
-                rolled_value = legend.get(3)
-            elif .6 < value <= .7:
-                rolled_value = legend.get(4)
-            elif .7 < value <= .8:
-                rolled_value = legend.get(5)
-            elif .8 < value <= .95:
-                rolled_value = legend.get(6)
-            elif .95 < value <= 1:
-                rolled_value = legend.get(7)
-            return rolled_value
-    def payout(self,bet, rolled_value1,rolled_value2,rolled_value3,legend_value):
-        if rolled_value1 == rolled_value2 == rolled_value3:
-            cash_multipler = legend_value.get(rolled_value1)
-            return bet * cash_multipler
-        else:
-            return bet * 0
-    def stop(self, bet,legend,legend_values, credit):
-        image1 = self.spin_calculations(legend)
-        image2 = self.spin_calculations(legend)
-        image3 = self.spin_calculations(legend)
-        # stopspin
-        # set each image to the corrusponding image
-        winnings = self.payout(bet,image1,image2,image3,legend_values)
-        credit = (credit - bet + winnings)
-        return winnings, credit
-
-
-    def start_spin(self, credit):
-            print("Your Current Wallet is  " + str(credit))
-            while True:
-                bet = input("How many coins will you bet: ")
-                if int(bet) > credit:
-                    print("Try Again, You're Too Poor")
-                else:
-                    return int(bet)
-                break
-
-
-        # ----- Each Widget -----
-            wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
-            wheelpluslegend.grid(row=0, column=0)
-
-            thewheel = tk.Canvas(wheelpluslegend)
-            thewheel["width"] = 400
-            thewheel["height"] = 400
-            thewheel["bg"] = "pink"
-            thewheel.grid(row=0, column=0)
-
-
-            legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10", wraplength=400, justify="center")
-            legend.grid(row=1, column=0)
-
-            controlbar = tk.Frame(self.mainWin, bg = "lightblue", padx=10, pady=10)
-            controlbar.grid(row=0, column=1)
-            SPIN = tk.Button(controlbar)
-            SPIN["text"] = "SPIN"
-            SPIN.grid(row=1, column=1)
 
     # def rotateImages(self):
 

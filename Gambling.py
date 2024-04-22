@@ -85,4 +85,4 @@ def main():
     print("Your total is " + str(casino_credit))
     if casino_credit <= 100000000000000000000000000000:
         print("Man, you suck at gambling")
-main()
+
