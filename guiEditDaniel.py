@@ -56,6 +56,7 @@ class BasicGui:
         SPIN = tk.Button(controlbar)
         SPIN["text"] = "SPIN"
         SPIN.grid(row=2, column=1)
+        SPIN.
 
 
         stopspin = tk.Button(controlbar)
@@ -109,6 +110,12 @@ class BasicGui:
         winnings = payout(bet,image1,image2,image3,legend_values)
         return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
 
+    def rotateImages(self):
+        sec = 0
+        while sec > 0:
+            self.thewheel.create_image(75, 150, image=random.choice(self.imgList))
+            sec = sec + 1
+
     def start_spin(self, credit):
             print("Your Current Wallet is  " + str(credit))
             while True:
@@ -120,32 +127,10 @@ class BasicGui:
                 break
 
 
-        # ----- Each Widget -----
-            wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
-            wheelpluslegend.grid(row=0, column=0)
-
-            thewheel = tk.Canvas(wheelpluslegend)
-            thewheel["width"] = 400
-            thewheel["height"] = 400
-            thewheel["bg"] = "pink"
-            thewheel.grid(row=0, column=0)
-
-
-            legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10", wraplength=400, justify="center")
-            legend.grid(row=1, column=0)
-
-            controlbar = tk.Frame(self.mainWin, bg = "lightblue", padx=10, pady=10)
-            controlbar.grid(row=0, column=1)
-            SPIN = tk.Button(controlbar)
-            SPIN["text"] = "SPIN"
-            SPIN.grid(row=1, column=1)
-
-    def rotateImages(self):
-        for pic in list:
-
 
     def run(self):
         self.mainWin.mainloop()
+        self.rotateImages()
 
 
 # ----- Main program -----
