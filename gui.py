@@ -145,7 +145,7 @@ class BasicGui:
             SPIN.grid(row=1, column=1)
 
     def rotateImages(self):
-        
+
 
 
     def run(self):
