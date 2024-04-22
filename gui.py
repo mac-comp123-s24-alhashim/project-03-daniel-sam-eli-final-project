@@ -145,8 +145,7 @@ class BasicGui:
             SPIN["text"] = "SPIN"
             SPIN.grid(row=1, column=1)
 
-    def rotateImages(self):
-        ...
+    # def rotateImages(self):
 
 
 
