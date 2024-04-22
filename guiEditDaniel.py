@@ -32,9 +32,9 @@ class BasicGui:
         thewheel["bg"] = "pink"
         thewheel.grid(row=0, column=0, padx=25, pady=50)
 
-        thewheel.create_image(75, 150, image=random.choice(self.imgList))
-        thewheel.create_image(200, 150, image=random.choice(self.imgList))
-        thewheel.create_image(350, 150, image=random.choice(self.imgList))
+        img1 = thewheel.create_image(75, 150, image=random.choice(self.imgList))
+        img2 = thewheel.create_image(200, 150, image=random.choice(self.imgList))
+        img3 = thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10",
                           wraplength=400, justify="center")
@@ -140,7 +140,9 @@ class BasicGui:
             SPIN["text"] = "SPIN"
             SPIN.grid(row=1, column=1)
 
-    # def rotateImages(self):
+    def rotateImages(self):
+        for pic in list:
+            
 
     def run(self):
         self.mainWin.mainloop()
