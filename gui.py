@@ -6,6 +6,7 @@ import PIL.Image as Image
 import PIL.ImageTk as ImageTk
 
 import os
+casino_credit = 100
 
 # ----- GUI class and methods -----
 class BasicGui:
@@ -46,7 +47,7 @@ class BasicGui:
 
         payoutlabel = tk.Label(controlbar)
         payoutlabel.grid(row=0, column=1)
-        payoutlabel["text"] = "put amazing wonderful stuff in here"
+        payoutlabel["text"] = "Payout:"
 
         whattosay = "Credit:" , casino_credit
         moneystatus = tk.Label(controlbar)
@@ -145,6 +146,7 @@ class BasicGui:
             SPIN.grid(row=1, column=1)
 
     def rotateImages(self):
+        ...
 
 
 
@@ -153,6 +155,5 @@ class BasicGui:
 
 
 # ----- Main program -----
-casino_credit = 100
 myGui = BasicGui()
 myGui.run()
