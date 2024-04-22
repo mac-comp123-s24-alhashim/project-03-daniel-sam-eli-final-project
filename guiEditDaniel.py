@@ -142,7 +142,7 @@ class BasicGui:
 
     def rotateImages(self):
         for pic in list:
-            
+
 
     def run(self):
         self.mainWin.mainloop()
