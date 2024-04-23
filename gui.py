@@ -11,7 +11,7 @@ import os
 # Helper Functions
 def ask_bet(credit):
     while True:
-        bet = simpledialog.askinteger("Your current credit is" + str(credit), "what would you like to bet")
+        bet = simpledialog.askinteger("Betting Window","Your current credit is " + str(credit) + ", what would you like to bet")
         if int(bet) <= credit:
             return int(bet)
             break
