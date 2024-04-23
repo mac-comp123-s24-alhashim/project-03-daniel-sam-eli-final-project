@@ -53,7 +53,7 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
         money = int(bet * cash_multipler/2)
         return money
     elif rolled_value3 == rolled_value1:
-        cash_multipler = legend_value.get(rolled_value2)
+        cash_multipler = legend_value.get(rolled_value3)
         money = int(bet* cash_multipler/2)
         return money
     else:
@@ -159,6 +159,7 @@ class BasicGui:
         hashtagdeep["height"] = 10
         hashtagdeep.grid(row=4, column=1, pady=10)
 
+
         # ----- Callbacks for Calculations Stuff -----
     # def rotateImages(self):
 
@@ -187,6 +188,7 @@ class BasicGui:
                 self.moneystatus["text"] = "Credit:", self.casino_credit
         else:
             messagebox.showerror("Error", "nothing to stop")
+
 
 
 # ----- Main program -----
