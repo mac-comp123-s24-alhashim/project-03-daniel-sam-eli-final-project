@@ -1,4 +1,6 @@
 import tkinter as tk
+from tkinter import messagebox
+from tkinter import simpledialog
 import random
 
 import PIL
@@ -6,6 +8,18 @@ import PIL.Image as Image
 import PIL.ImageTk as ImageTk
 
 import os
+#------Helper Function
+def ask_bet(credit):
+    while True:
+        bet = simpledialog.askinteger("Your current credit is" + str(credit), "what would you like to bet")
+        if int(bet) <= credit:
+            return int(bet)
+            break
+        else:
+            messagebox.showerror("Try Again",
+                                 "You don't have enough credit")
+
+
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
@@ -48,21 +62,9 @@ class BasicGui:
             credit = (credit - bet + winnings)
             return winnings, credit
 
-        def show_entry_in_main():
-            # Updating the label in the main window with the entry from the popup
-            popup.destroy()  # This will close the popup window
+        def start_spin():
+           print(ask_bet(casino_credit))
 
-        def start_spin(self, credit):
-            global popup, entry
-            popup = tk.Toplevel(self.mainWin)  # Creating a popup window which will be on top of the main window
-            popup.title("Input Entry")
-            popup.geometry("300x150")
-            # Input widget in the popup window
-            entry = tk.Entry(popup)
-            entry.pack(pady=(20, 10))
-            # Submit button that will call the show entry function which will set the text to the variable
-            btn_ok = tk.Button(popup, text="Submit", command=show_entry_in_main)
-            btn_ok.pack()
         self.mainWin = tk.Tk()
 
 
@@ -111,7 +113,7 @@ class BasicGui:
         moneystatus["text"] = whattosay
 
         SPIN = tk.Button(controlbar)
-        SPIN['command'] = start_spin(self,casino_credit)
+        SPIN['command'] = start_spin
         SPIN["text"] = "SPIN"
         SPIN.grid(row=2, column=1)
 
