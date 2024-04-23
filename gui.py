@@ -166,8 +166,12 @@ class BasicGui:
         self.mainWin.mainloop()
 
     def start_spin(self):
-        self.user_Bet = ask_bet(self.casino_credit)
-        self.spin_button = "pressed"
+        if self.spin_button == "not pressed":
+            self.user_Bet = ask_bet(self.casino_credit)
+            self.spin_button = "pressed"
+        else:
+            messagebox.showerror("Error", "Already Spinning")
+
 
     def stop_spin(self):
         if self.spin_button == "pressed":
