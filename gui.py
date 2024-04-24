@@ -75,14 +75,14 @@ def stop(bet, legend, legend_values, credit):
 class BasicGui:
     def __init__(self):
         self.mainWin = tk.Tk()
-        self.optionsForSlotMachine = {1: "Trash",
+        self.optionsForSlotMachine = {1: "Cafe Mac",
                                       4: "Bagpipes",
                                       3: "Loch Ness Monster",
                                       2: "Apple",
                                       5: "Diamond",
                                       6: "Dupre",
                                       7: "Jackpot"}
-        self.SlotMachine_value = {"Trash": .5,
+        self.SlotMachine_value = {"Cafe Mac": .5,
                                   "Bagpipes": 1.5,
                                   "Loch Ness Monster": 3,
                                   "Apple": 4,
@@ -120,7 +120,7 @@ class BasicGui:
         thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend,
-                          text='Trash = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100',
+                          text='Cafe Mac = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100',
                           font="Arial 10",
                           wraplength=400, justify="center", bg="lightgray", borderwidth=2, relief="solid")
         legend.grid(row=1, column=0, pady=10)
