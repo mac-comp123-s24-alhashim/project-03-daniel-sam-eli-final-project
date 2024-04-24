@@ -7,6 +7,8 @@ import PIL.ImageTk as ImageTk
 
 import os
 
+import interval_timer as intTimer
+
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
@@ -32,9 +34,9 @@ class BasicGui:
         thewheel["bg"] = "pink"
         thewheel.grid(row=0, column=0, padx=25, pady=50)
 
-        img1 = thewheel.create_image(75, 150, image=random.choice(self.imgList))
-        img2 = thewheel.create_image(200, 150, image=random.choice(self.imgList))
-        img3 = thewheel.create_image(350, 150, image=random.choice(self.imgList))
+        self.img1 = thewheel.create_image(75, 150, image=random.choice(self.imgList))
+        self.img2 = thewheel.create_image(200, 150, image=random.choice(self.imgList))
+        self.img3 = thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10",
                           wraplength=400, justify="center")
@@ -56,7 +58,7 @@ class BasicGui:
         SPIN = tk.Button(controlbar)
         SPIN["text"] = "SPIN"
         SPIN.grid(row=2, column=1)
-        SPIN.
+        SPIN["command"] = self.rotateImages
 
 
         stopspin = tk.Button(controlbar)
@@ -110,12 +112,6 @@ class BasicGui:
         winnings = payout(bet,image1,image2,image3,legend_values)
         return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
 
-    def rotateImages(self):
-        sec = 0
-        while sec > 0:
-            self.thewheel.create_image(75, 150, image=random.choice(self.imgList))
-            sec = sec + 1
-
     def start_spin(self, credit):
             print("Your Current Wallet is  " + str(credit))
             while True:
@@ -126,11 +122,16 @@ class BasicGui:
                     return int(bet)
                 break
 
+    def rotateImages(self):
+        for interval in intTimer(0.5):
+            self.wheel.
+
+
+
 
 
     def run(self):
         self.mainWin.mainloop()
-        self.rotateImages()
 
 
 # ----- Main program -----
