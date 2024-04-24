@@ -67,12 +67,12 @@ def stop(bet, legend, legend_values, credit, image_values, block, row1,row2,row3
     block.delete(row1)
     block.delete(row2)
     block.delete(row3)
-    row1 = block.create_image(75, 150, image= image_values[image1])
-    row2 = block.create_image(200, 150, image= image_values[image2])
-    row3 = block.create_image(350, 150, image= image_values[image3])
+    new_row1 = block.create_image(75, 150, image= image_values[image1])
+    new_row2 = block.create_image(200, 150, image= image_values[image2])
+    new_row3 = block.create_image(350, 150, image= image_values[image3])
     winnings = payout(bet, image1, image2, image3, legend_values)
     credit = (credit - bet + winnings)
-    return winnings, credit, row1, row2, row3
+    return winnings, credit, new_row1, new_row2, new_row3
 
 # ----- GUI class and methods -----
 class BasicGui:
