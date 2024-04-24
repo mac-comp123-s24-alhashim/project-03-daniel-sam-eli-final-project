@@ -120,7 +120,8 @@ class BasicGui:
         thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend,
-                          text='Cafe Mac = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100',
+                          text='Cafe Mac = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100'
+                               '                                           Rolling doubles of any multiplier will only give you half of the multiplier!',
                           font="Arial 10",
                           wraplength=400, justify="center", bg="lightgray", borderwidth=2, relief="solid")
         legend.grid(row=1, column=0, pady=10)
