@@ -8,6 +8,7 @@ import PIL.Image as Image
 import PIL.ImageTk as ImageTk
 
 import os
+import time
 # Helper Functions
 def ask_bet(credit):
     while True:
@@ -180,10 +181,22 @@ class BasicGui:
     def run(self):
         self.mainWin.mainloop()
 
+    def rotateImages(self):
+        while self.spin_button == "pressed":
+            self.thewheel.delete(self.img1)
+            self.thewheel.delete(self.img2)
+            self.thewheel.delete(self.img3)
+            self.img1 = self.thewheel.create_image(75, 150, image=random.choice(self.imgList))
+            self.img2 = self.thewheel.create_image(200, 150, image=random.choice(self.imgList))
+            self.img3 = self.thewheel.create_image(350, 150, image=random.choice(self.imgList))
+            self.thewheel.update()
+            time.sleep(0.5)
+
     def start_spin(self):
         if self.spin_button == "not pressed":
             self.user_Bet = ask_bet(self.casino_credit)
             self.spin_button = "pressed"
+            self.rotateImages()
         else:
             messagebox.showerror("Error", "Already Spinning")
 
