@@ -77,7 +77,9 @@ def stop(bet, legend, legend_values, credit, image_values, block, row1,row2,row3
 # ----- GUI class and methods -----
 class BasicGui:
     def __init__(self):
+
         self.mainWin = tk.Tk()
+        self.mainWin.title("The Lucky Loch Casino")
         self.optionsForSlotMachine = {1: "Cafe Mac",
                                       4: "Bagpipes",
                                       3: "Loch Ness Monster",
@@ -198,9 +200,8 @@ class BasicGui:
             self.payoutlabel["text"] = "Payout:", self.winnings
             self.moneystatus["text"] = "Credit:", self.casino_credit
             if self.casino_credit == 0:
-                messagebox.showinfo("You Lost!!!!", "You have no credit left, Try again to make money")
-                self.casino_credit = 100
-                self.moneystatus["text"] = "Credit:", self.casino_credit
+                messagebox.showinfo("You Lost!!!!", "You have no credit left, come back when you have money")
+                self.mainWin.destroy()
         else:
             messagebox.showerror("Error", "nothing to stop")
 
