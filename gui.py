@@ -72,7 +72,7 @@ def stop(bet, legend, legend_values, credit, image_values, block, row1,row2,row3
     row3 = block.create_image(350, 150, image= image_values[image3])
     winnings = payout(bet, image1, image2, image3, legend_values)
     credit = (credit - bet + winnings)
-    return winnings, credit
+    return winnings, credit, row1, row2, row3
 
 # ----- GUI class and methods -----
 class BasicGui:
@@ -191,6 +191,9 @@ class BasicGui:
                                  self.imgValues, self.thewheel, self.img1, self.img2, self.img3)
             self.winnings = winning_array[0]
             self.casino_credit = winning_array[1]
+            self.img1 = winning_array[2]
+            self.img2 = winning_array[3]
+            self.img3 = winning_array[4]
             self.spin_button = "not pressed"
             self.payoutlabel["text"] = "Payout:", self.winnings
             self.moneystatus["text"] = "Credit:", self.casino_credit
