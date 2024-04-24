@@ -7,7 +7,7 @@ import PIL.ImageTk as ImageTk
 
 import os
 
-import interval_timer as intTimer
+import time
 
 # ----- GUI class and methods -----
 class BasicGui:
@@ -26,17 +26,17 @@ class BasicGui:
         wheelpluslegend = tk.Frame(self.mainWin, bg='gray', padx=10, pady=10)
         wheelpluslegend.grid(row=0, column=0)
 
-        thewheel = tk.Canvas(wheelpluslegend)
+        self.thewheel = tk.Canvas(wheelpluslegend)
         wheelheight = 300
         wheelwidth = 400
-        thewheel["width"] = wheelwidth
-        thewheel["height"] = wheelheight
-        thewheel["bg"] = "pink"
-        thewheel.grid(row=0, column=0, padx=25, pady=50)
+        self.thewheel["width"] = wheelwidth
+        self.thewheel["height"] = wheelheight
+        self.thewheel["bg"] = "pink"
+        self.thewheel.grid(row=0, column=0, padx=25, pady=50)
 
-        self.img1 = thewheel.create_image(75, 150, image=random.choice(self.imgList))
-        self.img2 = thewheel.create_image(200, 150, image=random.choice(self.imgList))
-        self.img3 = thewheel.create_image(350, 150, image=random.choice(self.imgList))
+        self.img1 = self.thewheel.create_image(75, 150, image=random.choice(self.imgList))
+        self.img2 = self.thewheel.create_image(200, 150, image=random.choice(self.imgList))
+        self.img3 = self.thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend, text='lalalalalal this is a legend its so cool', font="Arial 10",
                           wraplength=400, justify="center")
@@ -103,14 +103,14 @@ class BasicGui:
             return bet * cash_multipler
         else:
             return bet * 0
-    def stop(self, bet,legend,legend_values):
-        image1 = spin_calculations(legend)
-        image2 = spin_calculations(legend)
-        image3 = spin_calculations(legend)
-        # stopspin
-        # set each image to the corrusponding image
-        winnings = payout(bet,image1,image2,image3,legend_values)
-        return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
+    # def stop(self, bet,legend,legend_values):
+    #     image1 = spin_calculations(legend)
+    #     image2 = spin_calculations(legend)
+    #     image3 = spin_calculations(legend)
+    #     # stopspin
+    #     # set each image to the corrusponding image
+    #     winnings = payout(bet,image1,image2,image3,legend_values)
+    #     return "Payout = " + str(winnings), "Total Money = " +str((credit - bet + winnings)), (credit - bet + winnings)  # This will eventually change to update the payout tab and the total credit tab
 
     def start_spin(self, credit):
             print("Your Current Wallet is  " + str(credit))
@@ -123,8 +123,17 @@ class BasicGui:
                 break
 
     def rotateImages(self):
-        for interval in intTimer(0.5):
-            self.wheel.
+        while True:
+            self.thewheel.delete(self.img1)
+            self.thewheel.delete(self.img2)
+            self.thewheel.delete(self.img3)
+            self.img1 = self.thewheel.create_image(75, 150, image=random.choice(self.imgList))
+            self.img2 = self.thewheel.create_image(200, 150, image=random.choice(self.imgList))
+            self.img3 = self.thewheel.create_image(350, 150, image=random.choice(self.imgList))
+            self.thewheel.update()
+            time.sleep(0.5)
+
+
 
 
 
