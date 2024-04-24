@@ -60,13 +60,17 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
         return bet * 0
 
 
-def stop(bet, legend, legend_values, credit):
+def stop(bet, legend, legend_values, credit, image_values, block, row1,row2,row3):
     image1 = spin_calculations(legend)
     image2 = spin_calculations(legend)
     image3 = spin_calculations(legend)
     print(image1,image2,image3)
-    # stopspin
-    # set each image to the corrusponding image
+    block.delete(row1)
+    block.delete(row2)
+    block.delete(row3)
+    row1 = block.create_image(75, 150, image= image_values[image1])
+    row2 = block.create_image(200, 150, image= image_values[image2])
+    row3 = block.create_image(350, 150, image= image_values[image3])
     winnings = payout(bet, image1, image2, image3, legend_values)
     credit = (credit - bet + winnings)
     return winnings, credit
@@ -75,14 +79,14 @@ def stop(bet, legend, legend_values, credit):
 class BasicGui:
     def __init__(self):
         self.mainWin = tk.Tk()
-        self.optionsForSlotMachine = {1: "Trash",
+        self.optionsForSlotMachine = {1: "Cafe Mac",
                                       4: "Bagpipes",
                                       3: "Loch Ness Monster",
                                       2: "Apple",
                                       5: "Diamond",
                                       6: "Dupre",
                                       7: "Jackpot"}
-        self.SlotMachine_value = {"Trash": .5,
+        self.SlotMachine_value = {"Cafe Mac": .5,
                                   "Bagpipes": 1.5,
                                   "Loch Ness Monster": 3,
                                   "Apple": 4,
@@ -103,24 +107,30 @@ class BasicGui:
             openedImage = Image.open("Images/" + picName)
             pic = ImageTk.PhotoImage(openedImage)
             self.imgList.append(pic)
-
+        self.imgValues = {"Cafe Mac": self.imgList[6],
+                                  "Bagpipes": self.imgList[0],
+                                  "Loch Ness Monster": self.imgList[4],
+                                  "Apple": self.imgList[3],
+                                  "Diamond": self.imgList[1],
+                                  "Dupre": self.imgList[2],
+                                  "Jackpot": self.imgList[5]}
         wheelpluslegend = tk.Frame(self.mainWin, padx=10, pady=10)
         wheelpluslegend.grid(row=0, column=0)
 
-        thewheel = tk.Canvas(wheelpluslegend)
+        self.thewheel = tk.Canvas(wheelpluslegend)
         wheelheight = 300
         wheelwidth = 400
-        thewheel["width"] = wheelwidth
-        thewheel["height"] = wheelheight
-        thewheel["bg"] = "darkgreen"
-        thewheel.grid(row=0, column=0, padx=25, pady=15)
+        self.thewheel["width"] = wheelwidth
+        self.thewheel["height"] = wheelheight
+        self.thewheel["bg"] = "darkgreen"
+        self.thewheel.grid(row=0, column=0, padx=25, pady=15)
 
-        thewheel.create_image(75, 150, image=random.choice(self.imgList))
-        thewheel.create_image(200, 150, image=random.choice(self.imgList))
-        thewheel.create_image(350, 150, image=random.choice(self.imgList))
+        self.img1 = self.thewheel.create_image(75, 150, image=random.choice(self.imgList))
+        self.img2 = self.thewheel.create_image(200, 150, image=random.choice(self.imgList))
+        self.img3 = self.thewheel.create_image(350, 150, image=random.choice(self.imgList))
 
         legend = tk.Label(wheelpluslegend,
-                          text='Trash = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100',
+                          text='Cafe Mac = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100',
                           font="Arial 10",
                           wraplength=400, justify="center", bg="lightgray", borderwidth=2, relief="solid")
         legend.grid(row=1, column=0, pady=10)
@@ -131,6 +141,7 @@ class BasicGui:
         self.payoutlabel = tk.Label(controlbar)
         self.payoutlabel.grid(row=0, column=1)
         self.payoutlabel["text"] = "Payout:", self.winnings
+
 
         whattosay = "Credit:", self.casino_credit
         self.moneystatus = tk.Label(controlbar)
@@ -176,7 +187,7 @@ class BasicGui:
 
     def stop_spin(self):
         if self.spin_button == "pressed":
-            winning_array = stop(self.user_Bet, self.optionsForSlotMachine, self.SlotMachine_value, self.casino_credit)
+            winning_array = stop(self.user_Bet, self.optionsForSlotMachine, self.SlotMachine_value, self.casino_credit,self.imgValues,self.thewheel, self.img1,self.img2, self.img3)
             self.winnings = winning_array[0]
             self.casino_credit = winning_array[1]
             self.spin_button = "not pressed"
