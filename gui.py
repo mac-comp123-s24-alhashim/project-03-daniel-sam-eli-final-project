@@ -150,7 +150,8 @@ class BasicGui:
         saying = ['life is like gambling. i just need a little more money to keep going.',
                   'Sonic says "I love Gambling"', 'gamblers dont quit. they lose.',
                   'Dont quit! youre about to make it big!', 'I love Gambling', 'gambling...mmmmm',
-                  'hello amin alhashim', 'youre gonna win this one i know it']
+                  'hello amin alhashim', 'youre gonna win this one i know it', 'gambler? i hardly know her!', '1 2 3 4 you should try and gamble more',
+                  'the early gambler gets the jackpot -A Wise Man', 'the next one is a jackpot. I just know it!!!']
         randsay = random.choice(saying)
         # SPIN["command"] = self.changesaying
         hashtagdeep = tk.Label(controlbar, text=randsay, font="Arial 10", wraplength=60, justify="center",
