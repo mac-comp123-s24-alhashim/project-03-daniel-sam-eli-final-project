@@ -190,7 +190,7 @@ class BasicGui:
             self.img2 = self.thewheel.create_image(200, 150, image=random.choice(self.imgList))
             self.img3 = self.thewheel.create_image(350, 150, image=random.choice(self.imgList))
             self.thewheel.update()
-            time.sleep(0.5)
+            time.sleep(0.2)
 
     def start_spin(self):
         if self.spin_button == "not pressed":
