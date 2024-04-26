@@ -1,3 +1,10 @@
+"""
+Authors: Sam Jackson, Eli Poll, and Daniel Quintero (dquinter@macalester.edu)
+
+Our program creates a slot machine by asking the user how many credits they want to bet and spinning images that are
+attached to values. When the user stops it, these images will determine their payout.
+"""
+
 import tkinter as tk
 import random
 from tkinter import messagebox
@@ -10,6 +17,10 @@ import PIL.ImageTk as ImageTk
 import os
 import time
 # Helper Functions
+"""
+This function takes in the amount of credits the user has and asks them how many credits they want to bet, returning
+that as a int variable to be used with other functions.
+"""
 def ask_bet(credit):
     while True:
         bet = simpledialog.askinteger("Betting Window","Your current credit is " + str(credit) + ", what would you like to bet")
@@ -19,6 +30,11 @@ def ask_bet(credit):
         else:
             messagebox.showerror("Try Again",
                                  "You don't have enough credit")
+
+"""
+This function takes in the legend dictionary within the init and uses a random number generator and probability
+to return a variable which is set to one of the legend keys.
+"""
 def spin_calculations(legend):
     rolled_value = 0
     for i in range(5):
@@ -39,7 +55,10 @@ def spin_calculations(legend):
             rolled_value = legend.get(7)
         return rolled_value
 
-
+"""
+This function takes in the number of credits the user bet, three of the variables that determine the value
+based on legend, and the legend value itself, and returns the payout the user gets based on if conditionals.
+"""
 def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
     if rolled_value1 == rolled_value2 == rolled_value3:
         cash_multipler = legend_value.get(rolled_value1)
@@ -63,7 +82,9 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
     else:
         return bet * 0
 
+"""
 
+"""
 def stop(bet, legend, legend_values, credit, image_values, block, row1,row2,row3):
     image1 = spin_calculations(legend)
     image2 = spin_calculations(legend)
@@ -179,7 +200,6 @@ class BasicGui:
 
 
         # ----- Callbacks for Calculations Stuff -----
-    # def rotateImages(self):
 
     def run(self):
         self.mainWin.mainloop()
