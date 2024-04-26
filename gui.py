@@ -35,7 +35,7 @@ def spin_calculations(legend):
             rolled_value = legend.get(5)
         elif .8 < value <= .95:
             rolled_value = legend.get(6)
-        elif .95 < value <= 1:
+        if .95 < value <= 1:
             rolled_value = legend.get(7)
         return rolled_value
 
@@ -44,6 +44,9 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
     if rolled_value1 == rolled_value2 == rolled_value3:
         cash_multipler = legend_value.get(rolled_value1)
         money = int(bet * cash_multipler)
+        if rolled_value1 == "Jackpot":
+            for i in range(10):
+                messagebox.showinfo("JACKPOT", "JACKPOT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return money
     elif rolled_value1 == rolled_value2:
         cash_multipler = legend_value.get(rolled_value2)
