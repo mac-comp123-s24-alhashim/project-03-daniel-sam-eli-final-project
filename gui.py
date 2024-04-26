@@ -175,10 +175,10 @@ class BasicGui:
                           text='Cafe Mac = 0.5    Bagpipes = 1.5  Loch Ness Monster = 3   Apple = 4   Diamond = 5 Dupre = 2   Jackpot = 100'
                                '                                           Rolling doubles of any multiplier will only give you half of the multiplier!',
                           font="Arial 10",
-                          wraplength=400, justify="center", bg="lightgray", borderwidth=2, relief="solid")
+                          wraplength=400, justify="center", bg="light gray", borderwidth=2, relief="solid")
         legend.grid(row=1, column=0, pady=10)
 
-        control_bar = tk.Frame(self.mainWin, borderwidth=1, relief="solid", padx=10, pady=10, bg="lightgray")
+        control_bar = tk.Frame(self.mainWin, borderwidth=1, relief="solid", padx=10, pady=10, bg="light gray")
         control_bar.grid(row=0, column=1)
 
         self.payout_label = tk.Label(control_bar)
@@ -202,14 +202,14 @@ class BasicGui:
 
         saying = ['life is like gambling. i just need a little more money to keep going.',
                   'Sonic says "I love Gambling"', 'gamblers dont quit. they lose.',
-                  'Dont quit! youre about to make it big!', 'I love Gambling', 'gambling...mmmmm',
-                  'hello amin alhashim', 'youre gonna win this one i know it', 'gambler? i hardly know her!',
+                  'Dont quit! you are about to make it big!', 'I love Gambling', 'gambling...mmmmm',
+                  'hello amin alhashim', 'you are gonna win this one i know it', 'gambler? i hardly know her!',
                   '1 2 3 4 you should try and gamble more',
                   'the early gambler gets the jackpot -A Wise Man', 'the next one is a jackpot. I just know it!!!']
         rand_say = random.choice(saying)
 
         hashtag_deep = tk.Label(control_bar, text=rand_say, font="Arial 10", wraplength=60, justify="center",
-                               borderwidth=2, relief="solid", bg="lightgray")
+                                borderwidth=2, relief="solid", bg="light gray")
         hashtag_deep["width"] = 10
         hashtag_deep["height"] = 10
         hashtag_deep.grid(row=4, column=1, pady=10)
