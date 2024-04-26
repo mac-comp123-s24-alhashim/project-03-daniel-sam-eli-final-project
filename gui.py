@@ -18,11 +18,12 @@ import os
 import time
 
 # Helper Functions
-"""
-This function takes in the amount of credits the user has and asks them how many credits they want to bet, returning
-that as a int variable to be used with other functions.
-"""
+
 def ask_bet(credit):
+    """
+    This function takes in the amount of credits the user has and asks them how many credits they want to bet, returning
+    that as a int variable to be used with other functions.
+    """
     while True:
         bet = simpledialog.askinteger("Betting Window",
                                       "Your current credit is " + str(credit) + ", what would you like to bet")
@@ -33,11 +34,12 @@ def ask_bet(credit):
                                  "You don't have enough credit")
 
 
-"""
-This function takes in the legend dictionary within the init and uses a random number generator and probability
-to return a variable which is set to one of the legend keys.
-"""
+
 def spin_calculations(legend):
+    """
+    This function takes in the legend dictionary within the init and uses a random number generator and probability
+    to return a variable which is set to one of the legend keys.
+    """
     rolled_value = 0
     for i in range(5):
         value = random.random()
@@ -58,11 +60,11 @@ def spin_calculations(legend):
         return rolled_value
 
 
-"""
-This function takes in the number of credits the user bet, three of the variables that determine the value
-based on legend, and the legend value itself, and returns the payout the user gets based on if conditionals.
-"""
 def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
+    """
+    This function takes in the number of credits the user bet, three of the variables that determine the value
+    based on legend, and the legend value itself, and returns the payout the user gets based on if conditionals.
+    """
     if rolled_value1 == rolled_value2 == rolled_value3:
         cash_multipler = legend_value.get(rolled_value1)
         money = int(bet * cash_multipler)
@@ -87,11 +89,13 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
         return bet * 0
 
 
-"""
-This function takes in the bet, the legend canvas, the values of the legend, the amount of credit the user has,
-the images attached to the values, 
-"""
+
 def stop(bet, legend, legend_values, credit, image_values, block, row1, row2, row3):
+    """
+    This function takes in the bet, the legend canvas, the values of the legend, the amount of credit the user has,
+    the images attached to the values, as well as the entire block of the images and three row for each of the images, and
+    returns the payout, the remaining the credit, and the new images when the user hits the stop button.
+    """
     image1 = spin_calculations(legend)
     image2 = spin_calculations(legend)
     image3 = spin_calculations(legend)
@@ -107,7 +111,13 @@ def stop(bet, legend, legend_values, credit, image_values, block, row1, row2, ro
 
 
 # ----- GUI class and methods -----
+"""
+A class that sets up all the objects and methods to create the GUI that takes in the helper functions from above.
+"""
 class BasicGui:
+    """
+    A function that takes no inputs and creates the GUI, returning the GUI with all the additions below.
+    """
     def __init__(self):
 
         self.mainWin = tk.Tk()
@@ -210,9 +220,17 @@ class BasicGui:
         # ----- Callbacks for Calculations Stuff -----
 
     def run(self):
+        """
+        A callback function that takes no inputs or has no returns and runs the GUI, or the main window with the
+        additions above.
+        """
         self.mainWin.mainloop()
 
     def rotateImages(self):
+        """
+        A callback function that takes no inputs and has no returns which rotates the images from the folder at a rate
+        of 0.2 seconds and updates the canvas where they are located.
+        """
         while self.spin_button == "pressed":
             self.the_wheel.delete(self.img1)
             self.the_wheel.delete(self.img2)
@@ -224,6 +242,10 @@ class BasicGui:
             time.sleep(0.2)
 
     def start_spin(self):
+        """
+        A callback function that takes no inputs or returns and adjusts the GUI above when the spin button is pressed
+        and ensures that the user cannot click the button again while spinning.
+        """
         if self.spin_button == "not pressed":
             self.user_bet = ask_bet(self.casino_credit)
             self.spin_button = "pressed"
@@ -232,6 +254,10 @@ class BasicGui:
             messagebox.showerror("Error", "Already Spinning")
 
     def stop_spin(self):
+        """
+        A callback that takes no inputs and has no returns which calculates the winnings, and remaining credit
+        the user has after they click the "stop spin" button
+        """
         if self.spin_button == "pressed":
             winning_array = stop(self.user_bet, self.optionsForSlotMachine, self.SlotMachine_value, self.casino_credit,
                                  self.imgValues, self.the_wheel, self.img1, self.img2, self.img3)
