@@ -22,8 +22,6 @@ import time
 This function takes in the amount of credits the user has and asks them how many credits they want to bet, returning
 that as a int variable to be used with other functions.
 """
-
-
 def ask_bet(credit):
     while True:
         bet = simpledialog.askinteger("Betting Window",
@@ -39,8 +37,6 @@ def ask_bet(credit):
 This function takes in the legend dictionary within the init and uses a random number generator and probability
 to return a variable which is set to one of the legend keys.
 """
-
-
 def spin_calculations(legend):
     rolled_value = 0
     for i in range(5):
@@ -66,8 +62,6 @@ def spin_calculations(legend):
 This function takes in the number of credits the user bet, three of the variables that determine the value
 based on legend, and the legend value itself, and returns the payout the user gets based on if conditionals.
 """
-
-
 def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
     if rolled_value1 == rolled_value2 == rolled_value3:
         cash_multipler = legend_value.get(rolled_value1)
@@ -94,10 +88,9 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
 
 
 """
-
+This function takes in the bet, the legend canvas, the values of the legend, the amount of credit the user has,
+the images attached to the values, 
 """
-
-
 def stop(bet, legend, legend_values, credit, image_values, block, row1, row2, row3):
     image1 = spin_calculations(legend)
     image2 = spin_calculations(legend)
