@@ -14,6 +14,12 @@ Spin It To Win It is a game created by our group for a final project in our Comp
   
 * Labels that keep track of the current credit and the payout the user got from the previous spin.
 
+# Requirements
+
+The user needs the following requirements:
+* [Python](https://www.python.org/downloads/)
+* [Pillow Package](https://pypi.org/project/pillow/)
+* [Tkinter Package](https://docs.python.org/3/library/tkinter.html)
 
 # Demo
 
