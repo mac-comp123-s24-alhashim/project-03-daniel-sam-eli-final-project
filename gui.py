@@ -17,6 +17,7 @@ import PIL.ImageTk as ImageTk
 import os
 import time
 
+
 # Helper Functions
 
 def ask_bet(credit):
@@ -32,7 +33,6 @@ def ask_bet(credit):
         else:
             messagebox.showerror("Try Again",
                                  "You don't have enough credit")
-
 
 
 def spin_calculations(legend):
@@ -66,28 +66,27 @@ def payout(bet, rolled_value1, rolled_value2, rolled_value3, legend_value):
     based on legend, and the legend value itself, and returns the payout the user gets based on if conditionals.
     """
     if rolled_value1 == rolled_value2 == rolled_value3:
-        cash_multipler = legend_value.get(rolled_value1)
-        money = int(bet * cash_multipler)
+        cash_multiplier = legend_value.get(rolled_value1)
+        money = int(bet * cash_multiplier)
         if rolled_value1 == "Jackpot":
             for i in range(10):
                 messagebox.showinfo("JACKPOT",
                                     "JACKPOT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return money
     elif rolled_value1 == rolled_value2:
-        cash_multipler = legend_value.get(rolled_value2)
-        money = int(bet * cash_multipler / 2)
+        cash_multiplier = legend_value.get(rolled_value2)
+        money = int(bet * cash_multiplier / 2)
         return money
     elif rolled_value2 == rolled_value3:
-        cash_multipler = legend_value.get(rolled_value2)
-        money = int(bet * cash_multipler / 2)
+        cash_multiplier = legend_value.get(rolled_value2)
+        money = int(bet * cash_multiplier / 2)
         return money
     elif rolled_value3 == rolled_value1:
-        cash_multipler = legend_value.get(rolled_value3)
-        money = int(bet * cash_multipler / 2)
+        cash_multiplier = legend_value.get(rolled_value3)
+        money = int(bet * cash_multiplier / 2)
         return money
     else:
         return bet * 0
-
 
 
 def stop(bet, legend, legend_values, credit, image_values, block, row1, row2, row3):
@@ -114,10 +113,13 @@ def stop(bet, legend, legend_values, credit, image_values, block, row1, row2, ro
 """
 A class that sets up all the objects and methods to create the GUI that takes in the helper functions from above.
 """
+
+
 class BasicGui:
     """
     A function that takes no inputs and creates the GUI, returning the GUI with all the additions below.
     """
+
     def __init__(self):
 
         self.mainWin = tk.Tk()
