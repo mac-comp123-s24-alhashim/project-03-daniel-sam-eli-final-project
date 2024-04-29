@@ -15,5 +15,9 @@ Spin It To Win It is a game created by our group for a final project in our Comp
 * Labels that keep track of the current credit and the payout the user got from the previous spin.
 
 
+# Demo
+
+We've listed below videos showing demos for different results based on spins.
+
 https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/69afcc7c-b115-4331-8840-6e5cacaeecef
 
