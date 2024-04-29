@@ -29,7 +29,8 @@ https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-proj
 
 https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/c5204d76-12ed-4594-8dfb-61c1d85f40a1
 
-https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/c5b82143-0b26-4082-9853-eb9aa7ad0696
+https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/69fdb75e-12d8-4adb-aa90-cfe653517014
+
 
 
 
