@@ -10,7 +10,6 @@ import random
 from tkinter import messagebox
 from tkinter import simpledialog
 
-import PIL
 import PIL.Image as Image
 import PIL.ImageTk as ImageTk
 
@@ -23,7 +22,7 @@ import time
 def ask_bet(credit):
     """
     This function takes in the amount of credits the user has and asks them how many credits they want to bet, returning
-    that as a int variable to be used with other functions.
+    that as an int variable to be used with other functions.
     """
     while True:
         bet = simpledialog.askinteger("Betting Window",
@@ -169,7 +168,7 @@ class BasicGui:
         wheel_width = 400
         self.the_wheel["width"] = wheel_width
         self.the_wheel["height"] = wheel_height
-        self.the_wheel["bg"] = "darkgreen"
+        self.the_wheel["bg"] = "dark green"
         self.the_wheel.grid(row=0, column=0, padx=25, pady=15)
 
         self.img1 = self.the_wheel.create_image(75, 150, image=random.choice(self.imgList))
@@ -208,7 +207,7 @@ class BasicGui:
         saying = ['life is like gambling. i just need a little more money to keep going.',
                   'Sonic says "I love Gambling"', 'gamblers dont quit. they lose.',
                   'Dont quit! you are about to make it big!', 'I love Gambling', 'gambling...mmmmm',
-                  'hello amin alhashim', 'you are gonna win this one i know it', 'gambler? i hardly know her!',
+                  'hello Amin Alhashim', 'you are gonna win this one i know it', 'gambler? i hardly know her!',
                   '1 2 3 4 you should try and gamble more',
                   'the early gambler gets the jackpot -A Wise Man', 'the next one is a jackpot. I just know it!!!']
         rand_say = random.choice(saying)
@@ -275,7 +274,7 @@ class BasicGui:
                 messagebox.showinfo("You Lost!!!!", "You have no credit left, come back when you have money")
                 self.mainWin.destroy()
         else:
-            messagebox.showerror("Error", "nothing to stop")
+            messagebox.showerror("Error", "Nothing to Stop")
 
 
 # ----- Main program -----
