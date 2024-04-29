@@ -27,3 +27,9 @@ We've listed below videos showing demos for different results based on spins.
 
 https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/69afcc7c-b115-4331-8840-6e5cacaeecef
 
+https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/c5204d76-12ed-4594-8dfb-61c1d85f40a1
+
+https://github.com/mac-comp123-s24-alhashim/project-03-daniel-sam-eli-final-project/assets/156964981/c5b82143-0b26-4082-9853-eb9aa7ad0696
+
+
+
