@@ -1,6 +1,6 @@
 # Spin It To Win It
 
-Spin It To Win It is a game created by our group for a final project in our Computer Science that simulates a slot machine. The user begins with a set number of credits, and after betting a number and stopping the spin, the user gets a payout dependent on the images they get, like a real slot machine.
+This is a game built in Python that simulates a slot machine. The user begins with a set number of credits, and after betting a number and stopping the spin, the user gets a payout dependent on the images they get, like a real slot machine.
 
 # Features
 
@@ -17,10 +17,16 @@ Spin It To Win It is a game created by our group for a final project in our Comp
 # Requirements
 
 The user needs the following requirements:
-* [Python](https://www.python.org/downloads/)
+* [Python 3](https://www.python.org/downloads/)
 * [Pillow Package](https://pypi.org/project/pillow/)
 * [Tkinter Package](https://docs.python.org/3/library/tkinter.html)
 
+# How to Play
+
+1. Ensure that you all have the requirements installed.
+2. Load or download the program.
+3. Run the gui.py file.
+   
 # Demo
 
 We've listed below videos showing demos for different results based on spins.
